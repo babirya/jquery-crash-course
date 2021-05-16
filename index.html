@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jqurey ||Part 1</title> 
+    <title>Jqurey crash course</title> 
     <script src=" https://code.jquery.com/jquery-3.6.0.min.js"> 
      </script>  
 
@@ -36,6 +36,13 @@
                 width: 90%; 
                 margin: auto; 
                 padding: 10px;
+            } 
+
+            #red{  
+
+                background-color: red;
+                width: 200px;
+                height: 200px;
             }
     
     </style>
@@ -44,70 +51,154 @@
 <body> 
       <!-- header here -->
    <header> 
-        <h1>Jquery crash course</h1>
+        <h1>Jquery crash course|| </h1>
 
    </header> 
-   <!-- container here  -->
+   <!-- container here  --> 
+
    <div id="container"> 
-       <h1 id="heading1">heading one</h1> 
-       <p id="para1">Lorem ipsum dolor sit amet consectetur adipisicing <span> elit</span>. Accusamus, iusto!</p>
-     
-       <h1 class="heading2">heading two</h1> 
-       <p class="para2">Lorem ipsum dolor sit amet consectetur adipisicing <span> elit</span>. Accusamus, iusto!</p>
-               <br> <br>  <br>
-          <!-- ul  part here--> 
+       
+    </div>  
+<!--  -->
+    <button id="btn">slide up</button> 
+    <button id="btn1">slide down</button> 
+    <button id="btn2">slide both </button>   
+    <button id="btn3">stop  </button>
+       <div id="red"> 
+  
 
-          <ul id="list">
-            
-            <li>List Item1</li>
-            <li>List Item2</li>
-            <li>List Item3</li>
-            <li>List Item4</li> 
-            <li>List Item5</li> 
-            <li>List Item6</li>
+       </div>
+       <br>  
+<hr> <br>  
+   <hr> <br>   
+   <hr> 
+   <hr>  
 
-          </ul> 
-       <br> <br> <br>
-          <!-- input part here -->
-           <input type="button" value="click "> 
-           <input type="submit" value="submit"> 
-           <input type="text"> 
-
-           <!-- link  -->
-     <br> <br> <br>
-    <a href="http://google.com">Google</a>
-    <a href="http://yahoo.com">yahoo</a>
-    </div> 
+   <button id="animate1">animate right</button> 
+ 
+   <button id="animate2">animate left </button>
    
+   <button id="animate3">animate arround </button>
+   <div id="green" style="background:green; width:200px; height:100px; position:relative ;margin-bottom: 400px; "> 
+
+
+   </div>
+
    
        <!-- javascript part here -->
-   <script> 
+   <script>  
+   $(document).ready(function(){
    
-   // $('h1#heading1').hide();  
-  
-$('p span').css('color','red'); 
+   // one  
+   $('#btn').click(function(){
 
-                // for list  
-
-
- $('ul#list li:first').css('color','red'); 
- $('ul#list li:last').css('color','green'); 
- // even >  1 3 5 .. 
- $('ul#list li:even').css('background-color','#333');
- // odd >> 2 4 6 .. 
- $('ul#list li:odd').css('background-color','blue');  
- // for every 3 liste to other 3 repeat
- $('ul#list li:nth-child(3n)').css('list-style','none'); 
-
-                    // for input  
+$('#red').fadeOut(5000,function(){
     
-     //    $(':button').hide(); 
+    $('#btn').text('fade out'); 
 
-                   //for link a 
+});
+  }); 
+   //two  
+   $('#btn1').click(function(){
 
-    $('[href]').css('color','red'); 
-    $('a[href="http://yahoo.com"]').css('color','blue');
-     
+$('#red').slideUp(3000);  
+  }); 
+   // three v
+   $('#btn2').click(function(){
+
+$('#red').show(); 
+  });  
+
+   // number four 
+   $('#btn3').click(function(){
+
+$('#red').stop(); 
+  }); 
+         //   part 2 animate >>>> 
+
+
+$('#animate1').click(function(){
+
+$('#green').animate({
+  left:400 ,
+height :80 ,
+width:50,
+opacity:'0.5'
+
+} ); 
+
+});
+
+
+$('#animate2').click(function(){
+
+$('#green').animate({
+  left:0 ,
+height :60 ,
+width:90,
+opacity:'1'
+
+} ); 
+
+});
+ 
+ // this one for move arround >>> 
+
+ $('#animate3').click(function(){
+
+var greenmove = $('#green'); 
+
+greenmove.animate({
+   left:400 
+
+}); 
+greenmove.animate({
+   top:300 
+
+});
+greenmove.animate({
+   left:0 
+
+});
+greenmove.animate({
+   top :0 
+
+});
+
+// part 2  
+
+greenmove.animate({
+   opacity:'3' , 
+   top:300
+
+},3000); 
+ 
+greenmove.animate({
+   opacity:'1.8' , 
+   left:400
+
+});
+greenmove.animate({
+   opacity:'1.4' , 
+   top:0
+
+});
+greenmove.animate({
+   opacity:'1' , 
+   left:0
+
+});
+
+
+}); 
+
+
+
+
+
+   });
+  
+  
   </script> 
 
 </body>
