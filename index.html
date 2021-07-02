@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JQuery | DOM </title>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" > </script>
+    
+<style> 
+ 
+ body{ 
+
+    font-size: 17px; 
+    font-family: arial; 
+    background: #f4f4f4; 
+    line-height: 1.5em;
+  } 
+  header{
+      background: #333;
+       color: #fff; 
+       padding: 20px; 
+       text-align: center; 
+       border-bottom: 4px #000 solid; 
+       margin-bottom: 10px;
+  }
+ #container{ 
+
+ width: 90%; 
+ margin: auto;  
+ padding: 10px ; 
+
+} 
+.myClass{
+color: blue;
+background: black; 
+padding: 30px;
+}
+</style>
+</head>
+<body> 
+
+ <header> 
+
+    <h1>JQuery crash course </h1> 
+
+ </header>
+        <div id="container"> 
+              
+            <button id="btn1">button</button>
+         <p class="para1">THIS IS PARAGRAPH NUMBER 1 </p>  
+         <p class="para2">THIS IS PARAGRAPH NUMBER 2 </p> 
+         <div id="myDiv"> </div>
+          <label for="">add items </label> 
+          <input type="text" id="item"> 
+          <button id="add"> add</button>
+         <!-- put a list -->
+       <ul id="list"> 
+       <li>list Item 1</li> 
+       <li>list Item 2</li>
+       <li>list Item 3</li>
+       <li>list Item 4</li>
+
+
+       </ul>
+             <!-- links --> 
+    
+   <a href="http://www.google.com">Google</a> 
+
+  <ul id="actors"> 
+
+  </ul>
+    
+         </div>
+
+  <!--jquery part here --> 
+  <script>  
+         $(document).ready(function(){
+       //this is how put multuple css
+
+$('p.para1').css({color:'red',background:'yellow',fontSize:'30px'}); 
+ 
+// $('p.para2').addClass('myClass');  
+ 
+
+   // toggleClass 
+   $('#btn1').click(function(){
+  
+     $('p.para2').toggleClass('myClass');
+
+   }); 
+   
+       // myDiv  
+
+       $('#myDiv').html('<h3>you can see me now</h3> ');
+             
+         });  
+
+         // append list item 
+         $('ul').append('<li>Appended Item</li>');
+         $('ul').prepend('<li>Appended Item in first</li>') 
+    // append and prepend To 
+
+    $('.para1').prependTo('.para2'); 
+
+    // before and after 
+
+    $('ul').before('<h3> this is the menu of our shop</h3>');
+    $('ul').after('<h3> thank you</h3>'); 
+   // $('ul').empty();  
+   // $('ul').detach();   
+    
+    // maniplite with attrubits
+$('a').attr('target','_blank'); 
+$('a').removeAttr('target');
+ 
+
+ // method wrap 
+ $('p').wrap('<h1>');  
+    
+
+     // add items from input  
+     $('#add').click(function(){
+         var a=$('#item').val();
+    $('ul').append('<li>'+a+'</li>');
+     
+
+
+
+            // this is arrays part  
+
+  var myArray =['foxmassat','mankirt','parmish','tyson','singa','guri']; 
+
+   $.each(myArray,function(i,val){
+  $('#actors').append('<li>'+myArray[i]+ '</li>');
+
+   });  
+
+ var arra=$('ul#list').toArray(); 
+
+ $.each(arra,function(i,val){
+  console.log(val.innerHTML);
+
+   });
+
+       });
+    </script>
+   
+</body>
+</html>
